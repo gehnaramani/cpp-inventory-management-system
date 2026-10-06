@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StockPilot | Inventory Management</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial;background:#eefbf8;color:#132c2a}
+header{background:#063b37;color:#fff;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:12px;background:#20b486;display:grid;place-items:center;font-size:22px}.brand h1{margin:0;font-size:21px}.brand p{margin:2px 0;color:#b9ddd5;font-size:12px}.status{color:#8de0c6;font-size:12px;font-weight:700}
+main{max-width:1100px;margin:42px auto;padding:0 22px}.hero{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px}.hero small{color:#468078}.hero h2{margin:5px 0;font-size:31px}.badge{background:#d7f5eb;color:#08735e;padding:8px 13px;border-radius:20px;font-size:12px;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}.stat{background:#fff;border:1px solid #cce9e1;border-radius:17px;padding:20px}.stat span{color:#688b84;font-size:12px}.stat b{display:block;font-size:28px;margin-top:7px}
+.card{background:#fff;border:1px solid #cce9e1;border-radius:19px;padding:24px;box-shadow:0 10px 30px #07594d15}.tools{display:flex;gap:10px;margin-bottom:20px}.tools input{flex:1;padding:13px;border:1px solid #c8ded9;border-radius:10px}.tools button{border:0;border-radius:10px;background:#087f69;color:white;padding:12px 18px;font-weight:700}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:16px 12px;border-bottom:1px solid #e1efec}th{font-size:12px;text-transform:uppercase;color:#64837e}td{font-size:14px}.stock{padding:6px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#d7f5eb;color:#08735e}.low{background:#fff0cf;color:#9a6410}
+footer{text-align:center;color:#688b84;font-size:12px;padding:30px}
+@media(max-width:700px){.stats{grid-template-columns:1fr}.hero{display:block}.badge{display:inline-block;margin-top:10px}table{font-size:12px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">▦</div><div><h1>StockPilot</h1><p>Inventory Management • C++</p></div></div><div class="status">● SYSTEM ACTIVE</div></header>
+<main>
+<div class="hero"><div><small>Warehouse Control Center</small><h2>Inventory Overview</h2></div><span class="badge">C++ PROJECT</span></div>
+<div class="stats"><div class="stat"><span>Total Products</span><b id="products">48</b></div><div class="stat"><span>Units in Stock</span><b id="units">1,286</b></div><div class="stat"><span>Low Stock Items</span><b>6</b></div></div>
+<div class="card">
+<div class="tools"><input id="search" placeholder="Search product..." oninput="filter()"><button onclick="filter()">Search</button></div>
+<table><thead><tr><th>Product</th><th>Category</th><th>Quantity</th><th>Price</th><th>Status</th></tr></thead>
+<tbody id="rows">
+<tr data-name="wireless mouse"><td>Wireless Mouse</td><td>Accessories</td><td>24</td><td>₹799</td><td><span class="stock">In Stock</span></td></tr>
+<tr data-name="keyboard"><td>Keyboard</td><td>Accessories</td><td>15</td><td>₹1,299</td><td><span class="stock">In Stock</span></td></tr>
+<tr data-name="usb hub"><td>USB Hub</td><td>Electronics</td><td>8</td><td>₹599</td><td><span class="stock low">Low Stock</span></td></tr>
+<tr data-name="webcam"><td>HD Webcam</td><td>Electronics</td><td>31</td><td>₹1,899</td><td><span class="stock">In Stock</span></td></tr>
+</tbody></table>
+</div>
+</main><footer>C++ OOP Project • Classes • Objects • Vector • Inventory Operations</footer>
+<script>
+function filter(){let q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('#rows tr').forEach(r=>r.style.display=r.dataset.name.includes(q)?'':'none')}
+</script>
+</body></html>
